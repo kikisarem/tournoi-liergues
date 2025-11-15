@@ -1212,5 +1212,38 @@
   <footer class="footer">
     Club Tennis Liergues — Tableau principal hommes
   </footer>
+  <script>
+const BOT_TOKEN = "8556557868:XXXTON_TOKEN_XXX";
+const CHAT_ID = "-1003368689029";
+
+function sendTelegram(message) {
+  const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
+  fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: message
+    })
+  });
+}
+
+function initScoreWatch() {
+  const inputs = document.querySelectorAll("input[type='text'], input[type='number']");
+
+  inputs.forEach(input => {
+    input.addEventListener("change", () => {
+      const matchName = input.closest("div")?.querySelector("h3")?.innerText || "Match inconnu";
+      const score = input.value;
+
+      if (score.trim() !== "") {
+        sendTelegram(`🎾 Mise à jour du score\nMatch : ${matchName}\nScore : ${score}`);
+      }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initScoreWatch);
+</script>
 </body>
 </html>
