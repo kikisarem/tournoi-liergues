@@ -1213,64 +1213,74 @@
     Club Tennis Liergues — Tableau principal hommes
   </footer>
   <script>
-/* ========= CONFIGURATION TELEGRAM ========= */
-const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
+/* ========= CONFIGURATION ========= */
+const BOT_TOKEN = "TON_TOKEN_ICI";
 const CHAT_ID = "-1003368689029";
+const STORAGE_KEY = "scores_hommes";
 
-/* ========= ENVOI NOTIFICATION TELEGRAM ========= */
+/* ========= TELEGRAM ========= */
 function sendTelegram(message) {
-  const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-  fetch(url, {
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+    body: JSON.stringify({
+      chat_id: CHAT_ID,
+      text: message
+    })
   });
 }
 
-/* ========= SAUVEGARDE LOCALE ========= */
+/* ========= SAUVEGARDE ========= */
 function saveScores() {
-  const allInputs = document.querySelectorAll("input.score-input, select.select-player");
+  const elements = document.querySelectorAll(
+    "input.score-input, select.select-player"
+  );
   const data = {};
 
-  allInputs.forEach((el, i) => {
-    data[i] = el.value;
+  elements.forEach((el, index) => {
+    data[index] = el.value;
   });
 
-  localStorage.setItem("scores_dames", JSON.stringify(data));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-/* ========= RESTAURATION LOCALE ========= */
+/* ========= RESTAURE ========= */
 function loadScores() {
-  const raw = localStorage.getItem("scores_dames");
-  if (!raw) return;
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return;
 
-  const data = JSON.parse(raw);
-  const allInputs = document.querySelectorAll("input.score-input, select.select-player");
+  const data = JSON.parse(saved);
+  const elements = document.querySelectorAll(
+    "input.score-input, select.select-player"
+  );
 
-  allInputs.forEach((el, i) => {
-    if (data[i] !== undefined) {
-      el.value = data[i];
-    }
+  elements.forEach((el, index) => {
+    if (data[index] !== undefined) el.value = data[index];
   });
 }
 
-/* ========= DÉTECTION DES CHANGEMENTS ========= */
+/* ========= WATCH ========= */
 function initScoreWatch() {
-  const inputs = document.querySelectorAll("input.score-input, select.select-player");
+  const inputs = document.querySelectorAll(
+    "input.score-input, select.select-player"
+  );
 
   inputs.forEach(el => {
     el.addEventListener("change", () => {
       saveScores();
 
-      // Trouve le nom correct du match
-      const matchCard = el.closest(".match-card");
-      const matchName = matchCard.querySelector(".match-title")?.innerText || "Match inconnu";
+      const card = el.closest(".match-card");
+      const matchTitle =
+        card?.querySelector(".match-title")?.innerText || "Match inconnu";
 
-      // Construit le score (tous les champs du match)
-      const allScores = matchCard.querySelectorAll("input.score-input");
-      const scoreText = Array.from(allScores).map(s => s.value || "-").join(" / ");
+      const scoreInputs = card?.querySelectorAll("input.score-input") || [];
+      const scoreText = Array.from(scoreInputs)
+        .map(s => s.value || "-")
+        .join(" / ");
 
-      sendTelegram(`🎾 Mise à jour du score\n📌 ${matchName}\n📊 Score : ${scoreText}`);
+      sendTelegram(
+        `🎾 Mise à jour du score — Hommes\n🏷️ ${matchTitle}\n📊 Score : ${scoreText}`
+      );
     });
   });
 }
