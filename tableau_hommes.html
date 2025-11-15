@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Tableau principal — Hommes</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-title">Tournoi CTL — Hommes</div>
+    <nav class="topbar-nav">
+      <a href="index.html">Accueil</a>
+      <a href="tableau_hommes.html" class="active">Tableau hommes</a>
+      <a href="consolante_hommes.html">Consolante hommes</a>
+      <a href="tableaux_dames.html">Dames</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="card page-header-row">
+      <div class="page-title-block">
+        <h1>Tableau principal — Hommes</h1>
+        <p>
+          18 joueurs. Le tableau est mis à jour manuellement (pas de calcul automatique).
+          Utilise les listes déroulantes et les cases de score pour suivre les résultats.
+        </p>
+      </div>
+    </div>
+
+    <section class="card">
+      <h2>Liste des joueurs</h2>
+      <p class="small-note">Référence rapide pour les classements FFT.</p>
+      <div class="players-grid">
+        <ul>
+          <li>Bresson Laurent — NC</li>
+          <li>Guesdon Jean‑Max — 30.1</li>
+          <li>Bresson Bernard — 30.5</li>
+          <li>Dechelette Christophe — 40</li>
+          <li>Bimbaud Alexandre — 30.3</li>
+          <li>Dauvergne Cédric — 30.4</li>
+          <li>Leneveu Romain — 30.1</li>
+          <li>Chomarat Denis — 30</li>
+          <li>Gardin Loïc — 30.3</li>
+        </ul>
+        <ul>
+          <li>Giraud Frédéric — 30.3</li>
+          <li>Fournier Aurélien — 30.4</li>
+          <li>Dodille Olivier — 40</li>
+          <li>Pichon Jean‑François — NC</li>
+          <li>Paillasseur Matthias — 30.5</li>
+          <li>Hermmsdorff Vincent — NC</li>
+          <li>Remond Jean‑Loup — 40</li>
+          <li>Windey Matthieu — NC</li>
+          <li>Laurent Geoffroy — NC</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Tableau principal</h2>
+      <p class="small-note">
+        Tu choisis les joueurs dans les listes. 2 sets gagnants, 3<sup>e</sup> set en super tie‑break 10 points.
+        Les cases de score sont libres (ex : 6‑4, 7‑6, 10‑8).
+      </p>
+
+      <div class="grid-bracket">
+        <!-- Tours préliminaires -->
+        <section>
+          <div class="round-column-title">Tours préliminaires</div>
+
+          <!-- TP1 -->
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">Tour préliminaire 1</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+
+          <!-- TP2 -->
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">Tour préliminaire 2</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 1/8 de finale -->
+        <section>
+          <div class="round-column-title">1/8 de finale</div>
+
+          <!-- 8 matchs de 1/8 -->
+
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 1</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 2</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 3</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 4</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 5</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 6</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 7</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/8 — Match 8</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+        </section>
+
+        <!-- 1/4, 1/2, Finale -->
+        <section>
+          <div class="round-column-title">1/4 de finale</div>
+
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/4 — Match 1</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/4 — Match 2</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/4 — Match 3</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/4 — Match 4</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+        </section>
+
+        <section>
+          <div class="round-column-title">1/2 finales</div>
+
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/2 — Match 1</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">1/2 — Match 2</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+        </section>
+
+        <section>
+          <div class="round-column-title">Finale</div>
+
+          <div class="match-card">
+            <div class="match-header">
+              <div class="match-title">Finale</div>
+              <div class="match-meta">2 sets · STB 10 pts</div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">A</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+            <div class="match-row">
+              <div class="player-label">B</div>
+              <select class="select-player">
+                <option value="">— Choisir un joueur —</option>
+                <option>Bresson Laurent (NC)</option>
+                <option>Guesdon Jean‑Max (30.1)</option>
+                <option>Bresson Bernard (30.5)</option>
+                <option>Dechelette Christophe (40)</option>
+                <option>Bimbaud Alexandre (30.3)</option>
+                <option>Dauvergne Cédric (30.4)</option>
+                <option>Leneveu Romain (30.1)</option>
+                <option>Chomarat Denis (30)</option>
+                <option>Gardin Loïc (30.3)</option>
+                <option>Giraud Frédéric (30.3)</option>
+                <option>Fournier Aurélien (30.4)</option>
+                <option>Dodille Olivier (40)</option>
+                <option>Pichon Jean‑François (NC)</option>
+                <option>Paillasseur Matthias (30.5)</option>
+                <option>Hermmsdorff Vincent (NC)</option>
+                <option>Remond Jean‑Loup (40)</option>
+                <option>Windey Matthieu (NC)</option>
+                <option>Laurent Geoffroy (NC)</option>
+              </select>
+              <div>
+                <input class="score-input" placeholder="S1" />
+                <input class="score-input" placeholder="S2" />
+                <input class="score-input" placeholder="STB" />
+              </div>
+            </div>
+          </div>
+    
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Club Tennis Liergues — Tableau principal hommes
+  </footer>
+</body>
+</html>
