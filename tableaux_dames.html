@@ -1212,37 +1212,73 @@
     Club Tennis Liergues — Tableaux dames
   </footer>
   <script>
+/* ========= CONFIGURATION TELEGRAM ========= */
 const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
 const CHAT_ID = "-1003368689029";
 
+/* ========= ENVOI NOTIFICATION TELEGRAM ========= */
 function sendTelegram(message) {
   const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
   fetch(url, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: CHAT_ID,
-      text: message
-    })
+    body: JSON.stringify({ chat_id: CHAT_ID, text: message })
   });
 }
 
+/* ========= SAUVEGARDE LOCALE ========= */
+function saveScores() {
+  const allInputs = document.querySelectorAll("input.score-input, select.select-player");
+  const data = {};
+
+  allInputs.forEach((el, i) => {
+    data[i] = el.value;
+  });
+
+  localStorage.setItem("scores_dames", JSON.stringify(data));
+}
+
+/* ========= RESTAURATION LOCALE ========= */
+function loadScores() {
+  const raw = localStorage.getItem("scores_dames");
+  if (!raw) return;
+
+  const data = JSON.parse(raw);
+  const allInputs = document.querySelectorAll("input.score-input, select.select-player");
+
+  allInputs.forEach((el, i) => {
+    if (data[i] !== undefined) {
+      el.value = data[i];
+    }
+  });
+}
+
+/* ========= DÉTECTION DES CHANGEMENTS ========= */
 function initScoreWatch() {
-  const inputs = document.querySelectorAll("input[type='text'], input[type='number']");
+  const inputs = document.querySelectorAll("input.score-input, select.select-player");
 
-  inputs.forEach(input => {
-    input.addEventListener("change", () => {
-      const matchName = input.closest("div")?.querySelector("h3")?.innerText || "Match inconnu";
-      const score = input.value;
+  inputs.forEach(el => {
+    el.addEventListener("change", () => {
+      saveScores();
 
-      if (score.trim() !== "") {
-        sendTelegram(`🎾 Mise à jour du score\nMatch : ${matchName}\nScore : ${score}`);
-      }
+      // Trouve le nom correct du match
+      const matchCard = el.closest(".match-card");
+      const matchName = matchCard.querySelector(".match-title")?.innerText || "Match inconnu";
+
+      // Construit le score (tous les champs du match)
+      const allScores = matchCard.querySelectorAll("input.score-input");
+      const scoreText = Array.from(allScores).map(s => s.value || "-").join(" / ");
+
+      sendTelegram(`🎾 Mise à jour du score\n📌 ${matchName}\n📊 Score : ${scoreText}`);
     });
   });
 }
 
-document.addEventListener("DOMContentLoaded", initScoreWatch);
+/* ========= INIT ========= */
+document.addEventListener("DOMContentLoaded", () => {
+  loadScores();
+  initScoreWatch();
+});
 </script>
 </body>
 </html>
