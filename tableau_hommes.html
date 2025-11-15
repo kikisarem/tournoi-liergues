@@ -1212,13 +1212,16 @@
   <footer class="footer">
     Club Tennis Liergues — Tableau principal hommes
   </footer>
-  <script>
-/* ========= CONFIGURATION ========= */
-const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
+ <script>
+// =========================
+// CONFIG TELEGRAM
+// =========================
+const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";   // ← remets ton token
 const CHAT_ID = "-1003368689029";
-const STORAGE_KEY = "scores_hommes";
 
-/* ========= TELEGRAM ========= */
+// =========================
+// FONCTION ENVOI TELEGRAM
+// =========================
 function sendTelegram(message) {
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: "POST",
@@ -1230,65 +1233,62 @@ function sendTelegram(message) {
   });
 }
 
-/* ========= SAUVEGARDE ========= */
-function saveScores() {
-  const elements = document.querySelectorAll(
-    "input.score-input, select.select-player"
-  );
-  const data = {};
+// =========================
+// SAUVEGARDE LOCALE
+// =========================
+function saveState() {
+  const allMatches = [];
 
-  elements.forEach((el, index) => {
-    data[index] = el.value;
+  document.querySelectorAll(".match-card").forEach(card => {
+    const title = card.querySelector(".match-title")?.innerText || "Match";
+    const selects = [...card.querySelectorAll("select")].map(s => s.value);
+    const scores  = [...card.querySelectorAll("input")].map(i => i.value);
+
+    allMatches.push({ title, selects, scores });
   });
 
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  localStorage.setItem(location.pathname, JSON.stringify(allMatches));
 }
 
-/* ========= RESTAURE ========= */
-function loadScores() {
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (!saved) return;
+// =========================
+// RESTAURATION
+// =========================
+function restoreState() {
+  const data = JSON.parse(localStorage.getItem(location.pathname) || "[]");
+  const cards = document.querySelectorAll(".match-card");
 
-  const data = JSON.parse(saved);
-  const elements = document.querySelectorAll(
-    "input.score-input, select.select-player"
-  );
+  data.forEach((match, i) => {
+    const card = cards[i];
+    if (!card) return;
 
-  elements.forEach((el, index) => {
-    if (data[index] !== undefined) el.value = data[index];
+    [...card.querySelectorAll("select")].forEach((s, idx) => s.value = match.selects[idx] || "");
+    [...card.querySelectorAll("input")].forEach((inp, idx) => inp.value = match.scores[idx] || "");
   });
 }
 
-/* ========= WATCH ========= */
-function initScoreWatch() {
-  const inputs = document.querySelectorAll(
-    "input.score-input, select.select-player"
-  );
-
-  inputs.forEach(el => {
+// =========================
+// TRACKING CHANGEMENTS
+// =========================
+function attachListeners() {
+  document.querySelectorAll("select, input").forEach(el => {
     el.addEventListener("change", () => {
-      saveScores();
+      saveState();
 
       const card = el.closest(".match-card");
-      const matchTitle =
-        card?.querySelector(".match-title")?.innerText || "Match inconnu";
+      const title = card.querySelector(".match-title")?.innerText || "Match";
+      const allInputs = [...card.querySelectorAll("input")].map(i => i.value).join(" | ");
 
-      const scoreInputs = card?.querySelectorAll("input.score-input") || [];
-      const scoreText = Array.from(scoreInputs)
-        .map(s => s.value || "-")
-        .join(" / ");
-
-      sendTelegram(
-        `🎾 Mise à jour du score — Hommes\n🏷️ ${matchTitle}\n📊 Score : ${scoreText}`
-      );
+      sendTelegram(`🎾 *Mise à jour*\n${title}\nScores : ${allInputs}`);
     });
   });
 }
 
-/* ========= INIT ========= */
+// =========================
+// INIT
+// =========================
 document.addEventListener("DOMContentLoaded", () => {
-  loadScores();
-  initScoreWatch();
+  restoreState();
+  attachListeners();
 });
 </script>
 </body>
