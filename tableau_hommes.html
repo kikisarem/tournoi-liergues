@@ -1217,97 +1217,95 @@
 const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
 const CHAT_ID = "-1003368689029";
 
-/* ========= TELEGRAM ========= */
-function sendTelegram(message) {
-  return fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      chat_id: CHAT_ID,
-      text: message
-    })
-  });
-}
-
-/* ========= LOCAL STORAGE ========= */
-function saveAllScores(storageKey) {
-  const elements = document.querySelectorAll(
-    "input.score-input, select.select-player"
-  );
+/* ========= SAVE / LOAD ========= */
+function saveMatch(card, storageKey) {
+  const inputs = card.querySelectorAll("input.score-input, select.select-player");
   const data = {};
 
-  elements.forEach((el, index) => {
-    data[index] = el.value;
+  inputs.forEach((el, i) => {
+    data[i] = el.value;
   });
 
-  localStorage.setItem(storageKey, JSON.stringify(data));
+  const all = JSON.parse(localStorage.getItem(storageKey) || "{}");
+  all[card.dataset.matchId] = data;
+
+  localStorage.setItem(storageKey, JSON.stringify(all));
 }
 
-function loadAllScores(storageKey) {
-  const saved = localStorage.getItem(storageKey);
-  if (!saved) return;
+function loadMatches(storageKey) {
+  const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
 
-  const data = JSON.parse(saved);
-  const elements = document.querySelectorAll(
-    "input.score-input, select.select-player"
-  );
+  document.querySelectorAll(".match-card").forEach((card) => {
+    const id = card.dataset.matchId;
+    if (!saved[id]) return;
 
-  elements.forEach((el, index) => {
-    if (data[index] !== undefined) el.value = data[index];
+    const data = saved[id];
+    const inputs = card.querySelectorAll("input.score-input, select.select-player");
+
+    inputs.forEach((el, i) => {
+      if (data[i] !== undefined) el.value = data[i];
+    });
   });
 }
 
-/* ========= BOUTON ENREGISTRER ========= */
-function initSaveButtons(storageKey, label) {
-  const buttons = document.querySelectorAll(".btn-save-match");
+/* ========= TELEGRAM ========= */
+function sendTelegram(msg) {
+  fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: CHAT_ID, text: msg })
+  });
+}
 
-  buttons.forEach((btn) => {
+/* ========= BUTTON GENERATION ========= */
+function addSaveButtons(storageKey, label) {
+  let counter = 1;
+
+  document.querySelectorAll(".match-card").forEach(card => {
+    card.dataset.matchId = counter++;
+
+    const btn = document.createElement("button");
+    btn.className = "btn-save-match";
+    btn.innerText = "Enregistrer le match";
+
     btn.addEventListener("click", () => {
-      const card = btn.closest(".match-card");
-
-      const matchTitle =
-        card?.querySelector(".match-title")?.innerText || "Match inconnu";
-
-      const scoreInputs = card.querySelectorAll("input.score-input");
-      const scoreText = Array.from(scoreInputs)
+      const title = card.querySelector(".match-title")?.innerText || "Match";
+      const players = [...card.querySelectorAll("select.select-player")]
+        .map(s => s.value || "?")
+        .join(" vs ");
+      const score = [...card.querySelectorAll("input.score-input")]
         .map(s => s.value || "-")
         .join(" / ");
 
-      const selectPlayers = card.querySelectorAll("select.select-player");
-      const players = Array.from(selectPlayers)
-        .map(s => s.value || "?")
-        .join(" vs ");
+      saveMatch(card, storageKey);
 
-      /* SAVE LOCAL */
-      saveAllScores(storageKey);
-
-      /* SEND TELEGRAM */
       sendTelegram(
-        `🎾 Mise à jour — ${label}\n🏷️ ${matchTitle}\n👥 ${players}\n📊 Score : ${scoreText}`
+        `🎾 Mise à jour — ${label}\n🏷️ ${title}\n👥 ${players}\n📊 Score : ${score}`
       );
 
-      /* CONFIRMATION */
-      btn.innerText = "✔️ Match enregistré";
-      setTimeout(() => (btn.innerText = "Enregistrer le match"), 1500);
+      btn.innerText = "✔️ Enregistré !";
+      setTimeout(() => btn.innerText = "Enregistrer le match", 1500);
     });
+
+    card.appendChild(btn);
   });
 }
 
 /* ========= INIT ========= */
 document.addEventListener("DOMContentLoaded", () => {
-  const fileName = window.location.pathname;
+  const file = window.location.pathname;
 
-  if (fileName.includes("tableau_hommes")) {
-    loadAllScores("scores_hommes");
-    initSaveButtons("scores_hommes", "Hommes");
+  if (file.includes("tableau_hommes")) {
+    loadMatches("scores_hommes");
+    addSaveButtons("scores_hommes", "Hommes");
   }
-  else if (fileName.includes("consolante_hommes")) {
-    loadAllScores("scores_consolante");
-    initSaveButtons("scores_consolante", "Consolante Hommes");
+  else if (file.includes("consolante_hommes")) {
+    loadMatches("scores_consolante");
+    addSaveButtons("scores_consolante", "Consolante Hommes");
   }
-  else if (fileName.includes("tableaux_dames")) {
-    loadAllScores("scores_dames");
-    initSaveButtons("scores_dames", "Dames");
+  else if (file.includes("tableaux_dames")) {
+    loadMatches("scores_dames");
+    addSaveButtons("scores_dames", "Dames");
   }
 });
 </script>
