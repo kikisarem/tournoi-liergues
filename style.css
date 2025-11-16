@@ -524,3 +524,40 @@ body {
 .btn-save-match:hover {
   background: #1b5e20;
 }
+
+
+.match-actions {
+  margin-top: 8px;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-save-match {
+  margin-top: 4px;
+  padding: 6px 10px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-save-match:hover {
+  background: #1b5e20;
+}
+
+.btn-reset-match {
+  margin-top: 4px;
+  padding: 6px 10px;
+  background: #374151;
+  color: #e5e7eb;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.btn-reset-match:hover {
+  background: #1f2937;
+}
