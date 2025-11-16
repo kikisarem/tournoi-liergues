@@ -1212,16 +1212,13 @@
   <footer class="footer">
     Club Tennis Liergues — Tableau principal hommes
   </footer>
- <script>
-// =========================
-// CONFIG TELEGRAM
-// =========================
-const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";   // ← remets ton token
+  <script>
+/* ========= CONFIGURATION ========= */
+const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
 const CHAT_ID = "-1003368689029";
+const STORAGE_KEY = "scores_hommes";
 
-// =========================
-// FONCTION ENVOI TELEGRAM
-// =========================
+/* ========= TELEGRAM ========= */
 function sendTelegram(message) {
   fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
     method: "POST",
@@ -1233,63 +1230,145 @@ function sendTelegram(message) {
   });
 }
 
-// =========================
-// SAUVEGARDE LOCALE
-// =========================
-function saveState() {
-  const allMatches = [];
+/* ========= SAUVEGARDE ========= */
+function saveScores() {
+  const elements = document.querySelectorAll(
+    "input.score-input, select.select-player"
+  );
+  const data = {};
 
-  document.querySelectorAll(".match-card").forEach(card => {
-    const title = card.querySelector(".match-title")?.innerText || "Match";
-    const selects = [...card.querySelectorAll("select")].map(s => s.value);
-    const scores  = [...card.querySelectorAll("input")].map(i => i.value);
-
-    allMatches.push({ title, selects, scores });
+  elements.forEach((el, index) => {
+    data[index] = el.value;
   });
 
-  localStorage.setItem(location.pathname, JSON.stringify(allMatches));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 }
 
-// =========================
-// RESTAURATION
-// =========================
-function restoreState() {
-  const data = JSON.parse(localStorage.getItem(location.pathname) || "[]");
-  const cards = document.querySelectorAll(".match-card");
+/* ========= RESTAURE ========= */
+function loadScores() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) return;
 
-  data.forEach((match, i) => {
-    const card = cards[i];
-    if (!card) return;
+  const data = JSON.parse(saved);
+  const elements = document.querySelectorAll(
+    "input.score-input, select.select-player"
+  );
 
-    [...card.querySelectorAll("select")].forEach((s, idx) => s.value = match.selects[idx] || "");
-    [...card.querySelectorAll("input")].forEach((inp, idx) => inp.value = match.scores[idx] || "");
+  elements.forEach((el, index) => {
+    if (data[index] !== undefined) el.value = data[index];
   });
 }
 
-// =========================
-// TRACKING CHANGEMENTS
-// =========================
-function attachListeners() {
-  document.querySelectorAll("select, input").forEach(el => {
+/* ========= WATCH ========= */
+function initScoreWatch() {
+  const inputs = document.querySelectorAll(
+    "input.score-input, select.select-player"
+  );
+
+  inputs.forEach(el => {
     el.addEventListener("change", () => {
-      saveState();
+      saveScores();
 
       const card = el.closest(".match-card");
-      const title = card.querySelector(".match-title")?.innerText || "Match";
-      const allInputs = [...card.querySelectorAll("input")].map(i => i.value).join(" | ");
+      const matchTitle =
+        card?.querySelector(".match-title")?.innerText || "Match inconnu";
 
-      sendTelegram(`🎾 *Mise à jour*\n${title}\nScores : ${allInputs}`);
+      const scoreInputs = card?.querySelectorAll("input.score-input") || [];
+      const scoreText = Array.from(scoreInputs)
+        .map(s => s.value || "-")
+        .join(" / ");
+
+      sendTelegram(
+        `🎾 Mise à jour du score — Hommes\n🏷️ ${matchTitle}\n📊 Score : ${scoreText}`
+      );
     });
   });
 }
 
-// =========================
-// INIT
-// =========================
+/* ========= INIT ========= */
 document.addEventListener("DOMContentLoaded", () => {
-  restoreState();
-  attachListeners();
+  loadScores();
+  initScoreWatch();
 });
 </script>
+  <script>
+  /* ========= CONFIGURATION ========= */
+  const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
+  const CHAT_ID = "-1003368689029";
+  const STORAGE_KEY = "scores_hommes";
+
+  /* ========= TELEGRAM ========= */
+  function sendTelegram(message) {
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message
+      })
+    });
+  }
+
+  /* ========= SAUVEGARDE ========= */
+  function saveScores() {
+    const elements = document.querySelectorAll(
+      "input.score-input, select.select-player"
+    );
+    const data = {};
+
+    elements.forEach((el, index) => {
+      data[index] = el.value;
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  /* ========= RESTAURE ========= */
+  function loadScores() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
+    const data = JSON.parse(saved);
+    const elements = document.querySelectorAll(
+      "input.score-input, select.select-player"
+    );
+
+    elements.forEach((el, index) => {
+      if (data[index] !== undefined) el.value = data[index];
+    });
+  }
+
+  /* ========= WATCH ========= */
+  function initScoreWatch() {
+    const inputs = document.querySelectorAll(
+      "input.score-input, select.select-player"
+    );
+
+    inputs.forEach(el => {
+      el.addEventListener("change", () => {
+        saveScores();
+
+        const card = el.closest(".match-card");
+        const matchTitle =
+          card?.querySelector(".match-title")?.innerText || "Match inconnu";
+
+        const scoreInputs = card?.querySelectorAll("input.score-input") || [];
+        const scoreText = Array.from(scoreInputs)
+          .map(s => s.value || "-")
+          .join(" / ");
+
+        sendTelegram(
+          `🎾 Mise à jour du score — Tableau Hommes\n🏷️ ${matchTitle}\n📊 Score : ${scoreText}`
+        );
+      });
+    });
+  }
+
+  /* ========= INIT ========= */
+  document.addEventListener("DOMContentLoaded", () => {
+    loadScores();
+    initScoreWatch();
+  });
+  </script>
 </body>
 </html>

@@ -1280,5 +1280,84 @@ document.addEventListener("DOMContentLoaded", () => {
   initScoreWatch();
 });
 </script>
+  <script>
+  /* ========= CONFIGURATION ========= */
+  const BOT_TOKEN = "8556557868:AAEyrhLIsnGCx-3INrHD2789rXpNpKYe83E";
+  const CHAT_ID = "-1003368689029";
+  const STORAGE_KEY = "scores_dames";
+
+  /* ========= TELEGRAM ========= */
+  function sendTelegram(message) {
+    fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message
+      })
+    });
+  }
+
+  /* ========= SAUVEGARDE ========= */
+  function saveScores() {
+    const elements = document.querySelectorAll(
+      "input.score-input, select.select-player"
+    );
+    const data = {};
+
+    elements.forEach((el, index) => {
+      data[index] = el.value;
+    });
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  /* ========= RESTAURE ========= */
+  function loadScores() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (!saved) return;
+
+    const data = JSON.parse(saved);
+    const elements = document.querySelectorAll(
+      "input.score-input, select.select-player"
+    );
+
+    elements.forEach((el, index) => {
+      if (data[index] !== undefined) el.value = data[index];
+    });
+  }
+
+  /* ========= WATCH ========= */
+  function initScoreWatch() {
+    const inputs = document.querySelectorAll(
+      "input.score-input, select.select-player"
+    );
+
+    inputs.forEach(el => {
+      el.addEventListener("change", () => {
+        saveScores();
+
+        const card = el.closest(".match-card");
+        const matchTitle =
+          card?.querySelector(".match-title")?.innerText || "Match inconnu";
+
+        const scoreInputs = card?.querySelectorAll("input.score-input") || [];
+        const scoreText = Array.from(scoreInputs)
+          .map(s => s.value || "-")
+          .join(" / ");
+
+        sendTelegram(
+          `🎾 Mise à jour du score — Tableau Dames\n🏷️ ${matchTitle}\n📊 Score : ${scoreText}`
+        );
+      });
+    });
+  }
+
+  /* ========= INIT ========= */
+  document.addEventListener("DOMContentLoaded", () => {
+    loadScores();
+    initScoreWatch();
+  });
+  </script>
 </body>
 </html>
