@@ -511,3 +511,16 @@ body {
     width: 40px;
   }
 }
+.btn-save-match {
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.btn-save-match:hover {
+  background: #1b5e20;
+}
